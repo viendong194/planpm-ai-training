@@ -7,6 +7,8 @@ def build_site():
     plan_path = os.path.join(base_dir, "plan-dao-tao-PM-AI-integrated.md")
     syllabus_path = os.path.join(base_dir, "syllabus-chi-tiet-tung-buoi-hoc-PM-AI.md")
     survey_path = os.path.join(base_dir, "survey-level-AI-tool-PM.md")
+    deploy_path = os.path.join(base_dir, "ke-hoach-trien-khai-dao-tao-pm-ai.md")
+    report_path = os.path.join(base_dir, "bao-cao-tien-do-dao-tao-ai-pm.md")
     
     with open(plan_path, "r", encoding="utf-8") as f:
         plan_md = f.read()
@@ -17,10 +19,22 @@ def build_site():
     with open(survey_path, "r", encoding="utf-8") as f:
         survey_md = f.read()
 
+    deploy_md = ""
+    if os.path.exists(deploy_path):
+        with open(deploy_path, "r", encoding="utf-8") as f:
+            deploy_md = f.read()
+
+    report_md = ""
+    if os.path.exists(report_path):
+        with open(report_path, "r", encoding="utf-8") as f:
+            report_md = f.read()
+
     # Escape for JS string embedding
     plan_json = json.dumps(plan_md)
     syllabus_json = json.dumps(syllabus_md)
     survey_json = json.dumps(survey_md)
+    deploy_json = json.dumps(deploy_md)
+    report_json = json.dumps(report_md)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="vi" class="dark">
@@ -130,14 +144,15 @@ def build_site():
             background: var(--border-color);
             padding: 0.25rem;
             border-radius: 8px;
+            flex-wrap: wrap;
         }}
 
         .tab-btn {{
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 0.4rem 1rem;
-            font-size: 0.88rem;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             border-radius: 6px;
             cursor: pointer;
@@ -169,12 +184,12 @@ def build_site():
             border-radius: 6px;
             font-size: 0.85rem;
             outline: none;
-            width: 220px;
+            width: 200px;
             transition: width 0.3s ease;
         }}
 
         .search-input:focus {{
-            width: 280px;
+            width: 250px;
             border-color: var(--accent-blue);
         }}
 
@@ -278,7 +293,7 @@ def build_site():
         }}
 
         .markdown-body h1 {{
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 800;
             margin-bottom: 1.2rem;
             padding-bottom: 0.5rem;
@@ -289,7 +304,7 @@ def build_site():
         }}
 
         .markdown-body h2 {{
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 0.8rem;
@@ -297,7 +312,7 @@ def build_site():
         }}
 
         .markdown-body h3 {{
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.6rem;
@@ -414,8 +429,10 @@ def build_site():
         </div>
 
         <div class="nav-tabs">
-            <button class="tab-btn active" onclick="switchTab('syllabus')">📚 Giáo Trình 18 Buổi</button>
+            <button class="tab-btn active" onclick="switchTab('deploy')">🚀 Phương Án Triển Khai</button>
+            <button class="tab-btn" onclick="switchTab('report')">📊 Báo Cáo Baseline PM</button>
             <button class="tab-btn" onclick="switchTab('plan')">🗺️ Plan Đào Tạo</button>
+            <button class="tab-btn" onclick="switchTab('syllabus')">📚 Giáo Trình 18 Buổi</button>
             <button class="tab-btn" onclick="switchTab('survey')">📋 Survey Đánh Giá</button>
         </div>
 
@@ -453,16 +470,20 @@ def build_site():
         const PLAN_MD = {plan_json};
         const SYLLABUS_MD = {syllabus_json};
         const SURVEY_MD = {survey_json};
+        const DEPLOY_MD = {deploy_json};
+        const REPORT_MD = {report_json};
 
-        let currentTab = 'syllabus';
+        let currentTab = 'deploy';
 
         mermaid.initialize({{ startOnLoad: false, theme: 'dark' }});
 
         function renderTab(tabName) {{
             currentTab = tabName;
             let rawMd = '';
-            if (tabName === 'syllabus') rawMd = SYLLABUS_MD;
+            if (tabName === 'deploy') rawMd = DEPLOY_MD;
+            else if (tabName === 'report') rawMd = REPORT_MD;
             else if (tabName === 'plan') rawMd = PLAN_MD;
+            else if (tabName === 'syllabus') rawMd = SYLLABUS_MD;
             else if (tabName === 'survey') rawMd = SURVEY_MD;
 
             // Render Markdown
@@ -485,9 +506,11 @@ def build_site():
 
         function switchTab(tabName) {{
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (tabName === 'syllabus') document.querySelectorAll('.tab-btn')[0].classList.add('active');
-            if (tabName === 'plan') document.querySelectorAll('.tab-btn')[1].classList.add('active');
-            if (tabName === 'survey') document.querySelectorAll('.tab-btn')[2].classList.add('active');
+            const tabs = ['deploy', 'report', 'plan', 'syllabus', 'survey'];
+            const index = tabs.indexOf(tabName);
+            if (index !== -1) {{
+                document.querySelectorAll('.tab-btn')[index].classList.add('active');
+            }}
             
             renderTab(tabName);
         }}
@@ -566,7 +589,7 @@ def build_site():
 
         // Initial Load
         window.addEventListener('DOMContentLoaded', () => {{
-            renderTab('syllabus');
+            renderTab('deploy');
         }});
     </script>
 </body>

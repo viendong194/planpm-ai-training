@@ -127,27 +127,29 @@ Gửi survey tự đánh giá **trước khi bắt đầu chương trình** — 
 | **Operational** | Bạn có làm weekly token summary & forecast budget không? | L2 vs L3 |
 | **Operational** | Bạn đã lead dự án medium với ROI dương & pass 30-Day Rollout chưa? | L2 vs L3 |
 
-### Bảng mapping nhân sự
+### Bảng Kết Quả Khảo Sát Baseline Thực Tế (Tháng 7/2026)
 
-| STT | Họ tên | Level Tool | Level Operational | Level confirm | Gap chính | Ưu tiên | Ghi chú |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | |
-| 2 | | | | | | | |
-| 3 | | | | | | | |
-| ... | | | | | | | |
+| STT | Họ và Tên | Email | Level Tool | Level Operational | Level Confirm | Gap Chính Cần Bổ Sung | Vai Trò & Ưu Tiên |
+|:---:|---|---|:---:|:---:|:---:|---|---|
+| **1** | **Nguyễn Vương Hồng Ngọc** | `ngocnvh@kaopiz.com` | L3 (84%) | L3 | 🥈 **Level 3** | Token Cost mới đọc dashboard; Báo cáo Stakeholder rập khuôn. | 🟢 **Mentoring & Peer Review** |
+| **2** | **Trương Văn Thao** | `thaotv@kaopiz.com` | L2 (58%) | L2 | 🥉 **Level 2** | Viết PRD tay 100%; User Story chưa review kỹ; Prompt rời rạc. | 🟡 Ưu tiên đào tạo L2 → L3 |
+| **3** | **Nguyễn Tiến Hoàn** | `hoannt1@kaopiz.com` | L2 (53%) | L2 | 🥉 **Level 2** | Prompting ngắn; Chưa dùng AI cho User Story; Chưa track Token cost. | 🟡 Ưu tiên đào tạo L2 → L3 |
+| **4** | **Phạm Huyền Trang** | `trangph@kaopiz.com` | L2 (42%) | L2 | 🥉 **Level 2** | Chưa dùng AI cho User Story & Status Report; Thiếu ranh giới dùng AI. | 🟡 Ưu tiên đào tạo L2 → L3 |
+| **5** | **Nguyễn Thị Hoàng Anh** | `anhnth@kaopiz.com` | L2 (42%) | L2 | 🥉 **Level 2** | Chưa dùng AI viết PRD & User Story (viết tay); Chưa track Token cost. | 🟡 Ưu tiên đào tạo L2 → L3 |
+| **6** | **Lê Bá Hoàng Giang** | `gianglbh@kaopiz.com` | L2 (37%) | L2 | 🥉 **Level 2** | Báo cáo viết tay; Cảm tính ranh giới AI; Story chưa review kỹ. | 🟡 Ưu tiên đào tạo L2 → L3 |
 
-> **Ghi chú:** Level confirm = min(Level Tool, Level Operational). Đào tạo theo hướng Tool-First để tháo gỡ gap tool cho PM trước.
+> **Ghi chú điều chỉnh triển khai:** Do **0% PM ở Level 0/1**, **83.3% ở Level 2** và **16.7% ở Level 3**, kế hoạch đào tạo sẽ **Fast-track giai đoạn L0→L1** (gộp Kick-off & 3 bài đầu thành 1 buổi 2h) và **tập trung 60% thời lượng vào giai đoạn L1→L2** để lấp 4 lỗ hổng cốt lõi (PRD, User Story, Token Cost, Status Report).
 
 ---
 
 ## Bước 4: Mục Tiêu Tỷ Lệ Level & 4 KPI Cốt Lõi (6 tháng)
 
-| Thời điểm | L0 | L1 | L2 | L3 | L4 | L5 |
-|---|---|---|---|---|---|---|
-| **T0 — Hiện tại** | _ | _ | _ | _ | _ | _ |
-| **T+2 tháng** | 0 | 40% | 50% | 10% | 0 | 0 |
-| **T+4 tháng** | 0 | 10% | 50% | 35% | 5% | 0 |
-| **T+6 tháng** | 0 | 0 | 30% | 55% | 15% | 0 |
+| Thời điểm | L0 | L1 | L2 | L3 | L4 | L5 | Trạng Thái Kế Hoạch |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| **T0 — Hiện tại (Khảo sát T7/2026)** | **0%** | **0%** | **83.3%** | **16.7%** | **0%** | **0%** | 🟢 **Baseline khởi đầu (6 PMs)** |
+| **T+2 tháng** | 0% | 0% | 66.7% | 33.3% | 0% | 0% | 🎯 Lấp xong lỗ hổng PRD & Story |
+| **T+4 tháng** | 0% | 0% | 33.3% | 50.0% | 16.7% | 0% | 🎯 Tích hợp Workflow Sprint & Token |
+| **T+6 tháng (Mục tiêu chốt)** | 0% | 0% | 16.7% | **66.7%** | **16.7%** | 0% | 🏆 **≥ 50% PM đạt L3+ (Thắng lợi)** |
 
 **4 KPI đo lường tiến độ chính:**
 1. **Thời gian tiết kiệm/tuần** — khi tạo PM artifacts bằng AI (target L3: ≥ 30%)
